@@ -41,22 +41,21 @@ public class SortControl {
 			String x=temp.substring(i,i+1);
 			System.out.print(Arrays.asList(letters).indexOf(x)+"  ");
 		}
-		//Harflerin sıralamada karşılaştırılması
-		for(int i=0;i<number;i++) {
-			String x=temp.substring(i,i+1);
-			System.out.print(Arrays.asList(letters).indexOf(x)+"  ");
-			int a=Arrays.asList(letters).indexOf(temp.substring(i,i+1));
-			int b=Arrays.asList(letters).indexOf(temp.substring(i+1,i+2));
-			
-			if(a<=b) {
+		//Karşılaştırma  
+		System.out.println();
+			for(int i=0;i<number-1;i++) {
+				if(words[i].substring(i, i+1).equals(words[i+1].substring(i, i+1))) {
+					
+				
 				System.out.println("Your words are in order!!");
-			break;
-			}
-			else {
+				break;
+			}else {
 				System.out.println("Your words are NOT in order!!");
 				break;
 			}
 		}
-	}while(number<=2);// En az 2 kelime alma
+
+		
+	}while(number>=2);// En az 2 kelime alma
   }
 }
