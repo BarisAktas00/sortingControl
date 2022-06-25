@@ -41,19 +41,53 @@ public class SortControl {
 			String x=temp.substring(i,i+1);
 			System.out.print(Arrays.asList(letters).indexOf(x)+"  ");
 		}
-		//Karşılaştırma  
-		System.out.println();
-			for(int i=0;i<number-1;i++) {
-				if(words[i].substring(i, i+1).equals(words[i+1].substring(i, i+1))) {
-					
-				
+		//Harflerin sıralamada karşılaştırılması
+		for(int i=0;i<number;i++) {
+			String x=temp.substring(i,i+1);
+			System.out.print(Arrays.asList(letters).indexOf(x)+"  ");
+			int a=Arrays.asList(letters).indexOf(temp.substring(i,i+1));
+			int b=Arrays.asList(letters).indexOf(temp.substring(i+1,i+2));
+		
+			if(a<b) {
 				System.out.println("Your words are in order!!");
-				break;
-			}else {
+			break;
+			}else if(a==b) {
+				for(int j=0;j<number-1;j++) {
+					String y=temp.substring(j,j+1);
+					
+					if(words[j].substring(j, j+1).equals(words[j+1].substring(j, j+1))) {
+						
+					System.out.println("Your words are in order!!");
+					
+					break;
+					
+				}else if(a!=b) {
+					if(Arrays.asList(letters).indexOf(words[j].substring(j, j+1)) < (Arrays.asList(letters).indexOf(words[j+1].substring(j, j+1)))) {
+						System.out.println("Your words are in order!!");
+						break;
+					}else {
+						System.out.println("Your words are NOT in order!!");
+						break;
+					}
+				}
+				
+				else {
+					System.out.println("Your words are NOT in order!!");
+					break;
+				}
+					
+			}
+				
+			}
+			else {
 				System.out.println("Your words are NOT in order!!");
 				break;
 			}
-		}
+			
+		}  
+		System.out.println();
+		
+		
 
 		
 	}while(number>=2);// En az 2 kelime alma
